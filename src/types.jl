@@ -70,7 +70,6 @@ abstract Transformer <: Node end
 
 struct GasTurbine <: Transformer
     label::String
-    energytype::Symbol
     pwl::Function
     gas::Bus
     ht::Bus
@@ -78,5 +77,11 @@ struct GasTurbine <: Transformer
     elec
     hienergy
     loenergy
+    function GasTurbine(label;input=nothing,output1=nothing,output2=nothing)
+        label=label
+        gas=input
+        ht=output1
+        lt=output2
+    end
 end
     
